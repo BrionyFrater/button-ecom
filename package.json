@@ -7,21 +7,39 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "@next/env": "^16.1.7",
+    "better-auth": "^1.5.5",
+    "drizzle-orm": "^0.45.1",
     "next": "16.1.7",
+    "pg": "^8.20.0",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.0",
+    "@biomejs/biome": "^2.4.7",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.18.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "ultracite": "^7.3.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "npx ultracite fix"
+    ]
   }
 }
