@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --onyx: oklch(0.1502 0.0071 214.03);
+  --frosted-blue: oklch(0.8655 0.0792 213.13);
+  --jade-green: oklch(0.7049 0.1882 150.58);
+  --soft-linen: oklch(0.9247 0.02 103.68);
+  --royal-blue: oklch(0.5555 0.2316 260.87);
+  --golden-orange: oklch(0.7685 0.1631 72.41); */
+  --cinnabar: oklch(0.6341 0.2183 29.58);
+
+  --lime-yellow: #daff02ff;
+  --parchment: #f3f0ebff;
+  --shadow-grey: #201e1fff;
+  --slate-blue: #685bc7ff;
+  --tiger-flame: #fe572aff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Semantic aliases */
+  --color-dark: var(--shadow-grey);
+  --color-light: var(--parchment);
+  --color-primary: var(--lime-yellow);
+  --color-secondary: var(--slate-blue);
+  --color-accent: var(--tiger-flame);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-modak);
+
+  /* FONT SIZES */
+  --text-display: 4.815rem;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.01em;
+
+  --text-h1: 2.986rem;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.01em;
+
+  --text-h2: 2.488rem;
+  --text-h2--line-height: 1.15;
+
+  --text-h3: 2.074rem;
+  --text-h3--line-height: 1.2;
+
+  --text-h4: 1.728rem;
+  --text-h4--line-height: 1.25;
+
+  --text-h5: 1.44rem;
+  --text-h5--line-height: 1.3;
+
+  --text-h6: 1.2rem;
+  --text-h6--line-height: 1.35;
+
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+
+  --text-sm: 0.833rem;
+  --text-sm--line-height: 1.5;
+
+  --text-xs: 0.694rem;
+  --text-xs--line-height: 1.4;
+
+  /* SPACING */
+  --spacing-section-xl: 7rem; /* 112px */
+  --spacing-section-lg: 5rem; /* 80px */
+  --spacing-section-md: 3rem; /* 48px */
+  --spacing-section-sm: 2rem; /* 32px */
+
+  --spacing-page-margin: 1.5rem; /* 24px */
+
+  --animate-scroll: banner-scroll 60s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes banner-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 5px;
+}
+::selection {
+  color: var(--color-light);
+  background-color: var(--color-dark);
+}
+
+nav a::selection {
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+.menu-items {
+  @apply uppercase font-normal text-h6;
+}
+
+.menu-items > li > * > * {
+  @apply flex gap-2 items-center transition-all duration-200;
+}
+
+.menu-items > li:hover > * {
+  @apply text-light font-black cursor-pointer;
+}
+
+.menu-items a:focus-visible > * {
+  @apply text-light font-black cursor-pointer;
 }
