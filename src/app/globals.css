@@ -66,9 +66,23 @@
   --spacing-section-md: 3rem; /* 48px */
   --spacing-section-sm: 2rem; /* 32px */
 
-  --spacing-page-margin: 1.5rem; /* 24px */
+  --spacing-page-x: 4rem; /* 64px */
+  --spacing-page-y: 4rem; /* 128px */
 
+  --animate-crossfade: crossfade 6s ease-in-out infinite;
   --animate-scroll: banner-scroll 60s linear infinite;
+}
+
+@keyframes crossfade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes banner-scroll {
@@ -99,18 +113,15 @@ nav a::selection {
   color: var(--color-dark);
   background-color: var(--color-light);
 }
-.menu-items {
-  @apply uppercase font-normal text-h6;
-}
 
 .menu-items > li > * > * {
   @apply flex gap-2 items-center transition-all duration-200;
 }
 
 .menu-items > li:hover > * {
-  @apply text-light font-black cursor-pointer;
+  @apply text-accent font-black cursor-pointer;
 }
 
 .menu-items a:focus-visible > * {
-  @apply text-light font-black cursor-pointer;
+  @apply text-accent font-black cursor-pointer;
 }

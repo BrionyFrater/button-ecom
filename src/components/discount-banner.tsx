@@ -9,7 +9,7 @@ export default function DiscountBanner() {
   const repeated = [...discounts, ...discounts];
 
   return (
-    <div className="group relative w-full cursor-default overflow-hidden bg-light py-1 text-secondary">
+    <div className="group relative z-21 w-full cursor-default overflow-hidden bg-light py-1 text-secondary">
       <p className="sr-only">{discounts.join(" ")}</p>
       <div
         aria-hidden="true"
