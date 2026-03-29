@@ -1,16 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
 import DiscountBanner from "@/components/discount-banner";
 import Navbar from "@/components/navbar";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-primary font-sans">
+    <div className="bg-primary font-sans">
       <DiscountBanner />
       <Navbar />
 
-      <main className="">
-        <section>
-          <div className="pointer-events-none w-full select-none bg-secondary p-5">
+      <main>
+        <section className="overflow-x-hidden">
+          <div className="pointer-events-none relative z-4 flex w-full select-none justify-center bg-secondary py-3 2xl:z-0 2xl:justify-start">
             <Image
               alt=""
               className="object-cover"
@@ -37,6 +39,10 @@ export default function Home() {
             src="/hero-img-9.png"
             width={1920}
           />
+
+          <Link href={"/"}>
+            <Button>d</Button>
+          </Link>
         </section>
       </main>
     </div>
