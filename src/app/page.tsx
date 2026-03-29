@@ -1,3 +1,4 @@
+import { Gem } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import DiscountBanner from "@/components/discount-banner";
@@ -12,7 +13,7 @@ export default function Home() {
 
       <main>
         <section className="overflow-x-hidden">
-          <div className="pointer-events-none relative z-4 flex w-full select-none justify-center bg-secondary py-3 2xl:z-0 2xl:justify-start">
+          <div className="pointer-events-none relative z-4 flex w-full select-none justify-center bg-light py-3 2xl:z-0 2xl:justify-start">
             <Image
               alt=""
               className="object-cover"
@@ -22,13 +23,18 @@ export default function Home() {
               width={600}
             />
           </div>
-          <div className="relative z-2 px-page-x">
+          <div className="relative z-2 flex w-full flex-col gap-section-md px-page-x">
             <h1 className="mt-section-xl max-w-xl font-black text-display text-light uppercase">
               Jewelry to match your energy
             </h1>
-            <h5 className="mt-section-sm max-w-lg font-black text-h5 text-light">
+            <h5 className="max-w-lg font-black text-h5 text-light">
               Choose from our bold ready-to-wear rings craft your own.
             </h5>
+            <Link className="self-end" href={"/"}>
+              <Button className="border-light bg-accent font-bold text-light">
+                <span className="">Shop Rings</span> <Gem />
+              </Button>
+            </Link>
           </div>
 
           <Image
@@ -39,10 +45,6 @@ export default function Home() {
             src="/hero-img-9.png"
             width={1920}
           />
-
-          <Link href={"/"}>
-            <Button>d</Button>
-          </Link>
         </section>
       </main>
     </div>

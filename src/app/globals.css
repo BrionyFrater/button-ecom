@@ -189,7 +189,7 @@
 }
 
 * {
-  @apply border-dark outline-ring/50;
+  @apply outline-ring/50;
 }
 
 body {
@@ -216,9 +216,9 @@ nav a::selection {
 }
 
 .menu-items > li:hover > * {
-  @apply text-secondary font-black cursor-pointer;
+  @apply text-dark font-black cursor-pointer;
 }
 
 .menu-items a:focus-visible > * {
-  @apply text-secondary font-black cursor-pointer;
+  @apply text-dark font-black cursor-pointer;
 }
