@@ -1,4 +1,4 @@
-npm run fix
+npm run lint
 # ultracite
 #!/bin/sh
 npx lint-staged
