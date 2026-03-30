@@ -9,11 +9,14 @@ export default function DiscountBanner() {
   const repeated = [...discounts, ...discounts];
 
   return (
-    <div className="group relative z-21 w-full cursor-default overflow-x-hidden bg-dark py-1 text-light">
+    <div
+      className="group relative z-21 w-full cursor-default overflow-x-hidden bg-dark py-1 text-light"
+      tabIndex={-1}
+    >
       <p className="sr-only">{discounts.join(" ")}</p>
       <div
         aria-hidden="true"
-        className="group-hover:paused flex w-max animate-scroll"
+        className="hover:paused group-focus-within:paused flex w-max animate-scroll"
       >
         <div className="flex shrink-0">
           {repeated.map((text, i) => (

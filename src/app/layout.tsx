@@ -35,6 +35,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${modakDisplay.variable} text-base antialiased`}
       >
+        <a
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-dark focus:px-4 focus:py-2 focus:font-bold focus:text-light focus:uppercase focus:outline-none"
+          href="#main-content"
+        >
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>
