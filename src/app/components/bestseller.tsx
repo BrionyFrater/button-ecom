@@ -1,9 +1,9 @@
 "use client";
 
 import { Star, StarHalf } from "lucide-react";
-import { useInView } from "motion/react";
+import { motion, useAnimate, useInView } from "motion/react";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { cn, formatNumber } from "@/lib/utils";
 
 interface BestsellerProps {
@@ -39,27 +39,60 @@ function StarRating({ rating }: { rating: number }) {
     </>
   );
 }
+
 export default function Bestseller({ product, className }: BestsellerProps) {
   const ref = useRef(null);
   const inView = useInView(ref);
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    if (inView) {
+      animate(
+        scope.current,
+        { rotate: 360 },
+        { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }
+      );
+    } else {
+      animate(scope.current, { rotate: 0 }, { duration: 0.1 });
+    }
+  }, [inView, animate, scope]);
+
+  const handleHoverStart = () => {
+    animate(
+      scope.current,
+      { rotate: 0 },
+      { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }
+    );
+  };
+
+  const handleHoverEnd = () => {
+    animate(
+      scope.current,
+      { rotate: 360 },
+      { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }
+    );
+  };
 
   return (
-    <div className="relative flex w-fit flex-col gap-5 overflow-hidden border border-dark pt-15 font-bold text-sm uppercase">
-      <div className="p-5" ref={ref}>
-        <Image
-          alt={product.name}
-          className={cn(
-            "select-none object-cover transition-all",
-            inView && cn("animation-duration-[20s] animate-spin", className)
-          )}
-          draggable={false}
-          height={400}
-          src={product.image}
-          width={400}
-        />
+    <motion.div
+      className="group relative flex cursor-default flex-col gap-5 overflow-hidden border border-dark pt-15 font-bold text-sm uppercase hover:cursor-pointer"
+      onHoverEnd={handleHoverEnd}
+      onHoverStart={handleHoverStart}
+    >
+      <div className="self-center p-5" ref={ref}>
+        <motion.div className={cn("select-none", className)} ref={scope}>
+          <Image
+            alt={product.name}
+            className="select-none object-cover"
+            draggable={false}
+            height={400}
+            src={product.image}
+            width={400}
+          />
+        </motion.div>
       </div>
 
-      <div className="mt-section-md border-dark border-t p-3 py-8">
+      <div className="mt-section-md border-dark border-t bg-light p-3 py-8 text-dark transition-colors duration-500 group-hover:bg-dark group-hover:text-light">
         <p>{product.name}</p>
         <div className="flex flex-wrap items-center gap-1">
           <StarRating rating={product.rating} />
@@ -70,6 +103,6 @@ export default function Bestseller({ product, className }: BestsellerProps) {
         </div>
         <p className="font-black">${formatNumber(product.price)} JMD</p>
       </div>
-    </div>
+    </motion.div>
   );
 }

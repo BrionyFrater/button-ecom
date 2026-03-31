@@ -192,6 +192,10 @@
   @apply outline-ring/50;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--color-dark);
   background-color: var(--color-primary);
@@ -216,9 +220,41 @@ nav a::selection {
 }
 
 .menu-items > li:hover > * {
-  @apply text-dark font-black cursor-pointer;
+  @apply text-light font-black cursor-pointer;
 }
 
 .menu-items a:focus-visible > * {
-  @apply text-dark font-black cursor-pointer;
+  @apply text-light font-black cursor-pointer;
+}
+
+.bestseller-grid {
+  grid-template-areas: "b" "a" "c" "d";
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .bestseller-grid {
+    grid-template-areas: "a b d" "a c d";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .bestseller-grid {
+    grid-template-areas: "a b d" "a c d";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.bestseller-grid-a {
+  grid-area: a;
+}
+.bestseller-grid-b {
+  grid-area: b;
+}
+.bestseller-grid-c {
+  grid-area: c;
+}
+.bestseller-grid-d {
+  grid-area: d;
 }

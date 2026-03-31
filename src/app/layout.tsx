@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Modak } from "next/font/google";
+import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,7 +42,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
