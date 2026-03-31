@@ -110,7 +110,7 @@ export default function HeroSection() {
           >
             <Button
               asChild
-              className="group border-light bg-accent font-bold text-h5 text-light"
+              className="group bg-accent font-bold text-h5 text-light"
             >
               <Link href={"/"}>
                 <span>Shop Rings</span>

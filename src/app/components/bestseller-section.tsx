@@ -56,7 +56,7 @@ export default function BestsellerSection() {
             }}
           />
           <motion.p
-            className="font-black text-primary uppercase"
+            className="hidden font-black text-primary uppercase sm:block"
             initial={{ x: -40, opacity: 0 }}
             transition={{ duration: 0.7, ease }}
             viewport={{ once: true }}
@@ -112,19 +112,34 @@ export default function BestsellerSection() {
               image: "/FlameRing01.png",
             }}
           />
-          <motion.p
-            className="text-right font-black text-primary uppercase"
-            initial={{ x: 40, opacity: 0 }}
-            transition={{ duration: 0.7, ease }}
-            viewport={{ once: true }}
-            whileInView={{ x: 0, opacity: 1 }}
-          >
-            <span>Designed to be</span>
-            <br />
-            <span>worn daily, built</span>
-            <br />
-            <span>to last a lifetime.</span>
-          </motion.p>
+          <div className="flex w-full justify-between gap-5 sm:justify-end">
+            <motion.p
+              className="block font-black text-primary uppercase sm:hidden"
+              initial={{ x: -40, opacity: 0 }}
+              transition={{ duration: 0.7, ease }}
+              viewport={{ once: true }}
+              whileInView={{ x: 0, opacity: 1 }}
+            >
+              <span>Made from</span>
+              <br />
+              <span>premium silver alloys</span>
+              <br />
+              <span>with a lasting finish.</span>
+            </motion.p>
+            <motion.p
+              className="text-right font-black text-primary uppercase"
+              initial={{ x: 40, opacity: 0 }}
+              transition={{ duration: 0.7, ease }}
+              viewport={{ once: true }}
+              whileInView={{ x: 0, opacity: 1 }}
+            >
+              <span>Designed to be</span>
+              <br />
+              <span>worn daily, built</span>
+              <br />
+              <span>to last a lifetime.</span>
+            </motion.p>
+          </div>
         </div>
       </div>
     </motion.section>

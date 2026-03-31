@@ -21,21 +21,21 @@ export default function Navbar() {
       </div>
       <ul className="menu-items flex w-full flex-5 items-center justify-between gap-8 p-5 py-3 font-normal text-h6 uppercase">
         <li>
-          <Link href={"/"}>
+          <Link href={"/shop"}>
             <span>
               Shop <IconDiamond />
             </span>
           </Link>
         </li>
         <li>
-          <Link href={"/"}>
+          <Link href={"/search"}>
             <span>
               Search <IconMoodSearch />
             </span>
           </Link>
         </li>
         <li>
-          <Link href={"/"}>
+          <Link href={"/cart"}>
             <span>
               Cart <IconBasketFilled />
             </span>
